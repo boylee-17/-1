@@ -1,0 +1,32 @@
+{% extends 'base.html '%}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h1>My page</h1>
+
+    <form action="{%url 'mypage' %}" method="post"></form>
+    <div class="container">
+            <table style="border-collapse: collapse; width: 100%;" data-ke-align="alignLeft">
+                <tbody>
+                <tr>
+                <td style="width: 50%;">회원 아이디</td>
+                <td style="width: 50%;">{{username}}</td>
+                </tr>
+                <tr>
+                <td style="width: 50%;">회원 닉네임</td>
+                <td style="width: 50%;">{{user.nickname}}</td>
+                </tr>
+                <tr>
+                <td style="width: 50%;">대학교</td>
+                <td style="width: 50%;">{{user.university}}</td>
+                </tr>
+                <tr>
+                <td style="width: 50%;">주소</td>
+                <td style="width: 50%;">{{user.location}}</td>
+                </tr>
+                </tbody>
+                </table>
+            <a href="{% url 'home' %}">확인</a>
+        </div>
+    {% endif %}
+{% endblock %}
